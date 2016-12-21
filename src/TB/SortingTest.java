@@ -6,11 +6,11 @@ import Entity.SortingAlgos.Sorting;
  * Created by Carioca on 19/12/2016.
  */
 public class SortingTest {
-    static final int ARRAY_SIZE = 10;
+    static final int ARRAY_SIZE = 90;
     public static void main(String[] args) {
         Integer []array = new Integer[ARRAY_SIZE];
         for(int i=0; i<ARRAY_SIZE; i++){
-            array[i] = (int)(Math.random() * 10);
+            array[i] = (int)(Math.random() * 20);
         }
         ShowArray(array);
         Sorting.QuickSort(array);
