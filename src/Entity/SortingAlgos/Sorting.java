@@ -6,9 +6,6 @@ package Entity.SortingAlgos;
 public class Sorting {
     public static <T extends Comparable<T>> void QuickSort(T []array){
         int lBorder = 0, rBorder = array.length-1;
-//        while(lBorder < rBorder){
-//
-//        }
         QSort(array, lBorder, rBorder);
     }
 
