@@ -8,10 +8,11 @@ import java.util.LinkedList;
 public class EdgeWeightedGraph{
     final int V;
     int E;
-    LinkedList<Edge>[]adj;
+    LinkedList<Edge> []adj;
 
     public EdgeWeightedGraph(int V){
         this.V = V;
+        this.E = 0;
         adj = (LinkedList<Edge> []) new LinkedList[V];
         for(int i=0; i<V; i++)
             adj[i] = new LinkedList<Edge>();
@@ -19,6 +20,14 @@ public class EdgeWeightedGraph{
 
     public void AddEdge(int v, int w, int weight){
         Edge e = new Edge(v, w, weight);
+        adj[v].add(e);
+        adj[w].add(e);
+        this.E++;
+    }
+
+    public void AddEdge(Edge e){
+        int v = e.either();
+        int w = e.other(v);
         adj[v].add(e);
         adj[w].add(e);
         this.E++;
