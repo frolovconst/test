@@ -19,6 +19,21 @@ public class EdgeWeightedGraph{
     }
 
     public void AddEdge(int v, int w, int weight){
+        for(Edge eIterator : adj[v]){
+            if(eIterator.other(v) == w)
+                if( eIterator.weight() > weight) {
+                    //System.out.println("1b4rem" + " " + adj[v].size());
+                    adj[v].remove(eIterator);
+                    adj[w].remove(eIterator);
+                    Edge e = new Edge(v, w, weight);
+                    adj[v].add(e);
+                    adj[w].add(e);
+                    return;
+                    //System.out.println("rem" + " " + adj[v].size());
+                }
+                else
+                    return;
+        }
         Edge e = new Edge(v, w, weight);
         adj[v].add(e);
         adj[w].add(e);
@@ -50,5 +65,9 @@ public class EdgeWeightedGraph{
             }
         }
         return edges;
+    }
+
+    public LinkedList<Edge> adj(int index){
+        return this.adj[index];
     }
 }
