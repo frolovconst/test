@@ -9,7 +9,7 @@ public class Graph{
     final int V;
     int E;
     LinkedList<Integer> []adj;
- 
+
     public Graph(int V){
         this.V = V;
         this.E = 0;
