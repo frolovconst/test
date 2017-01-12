@@ -6,7 +6,11 @@ package Entity.Graphs;
 public class Edge implements Comparable<Edge>{
     final int v;
     final int w;
-    final int weight;
+    int weight;
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     public Edge(int v, int w, int weight){
         this.v = v;

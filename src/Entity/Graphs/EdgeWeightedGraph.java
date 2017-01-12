@@ -19,24 +19,46 @@ public class EdgeWeightedGraph{
     }
 
     public void AddEdge(int v, int w, int weight){
-        for(Edge eIterator : adj[v]){
-            if(eIterator.other(v) == w)
-                if( eIterator.weight() > weight) {
-                    //System.out.println("1b4rem" + " " + adj[v].size());
-                    adj[v].remove(eIterator);
-                    adj[w].remove(eIterator);
-                    Edge e = new Edge(v, w, weight);
-                    adj[v].add(e);
-                    adj[w].add(e);
+//        for(Edge eIterator : adj[v]){
+//            if(eIterator.other(v) == w)
+//                if( eIterator.weight() > weight) {
+//                    //System.out.println("1b4rem" + " " + adj[v].size());
+//                    adj[v].remove(eIterator);
+//                    adj[w].remove(eIterator);
+//                    Edge e = new Edge(v, w, weight);
+//                    adj[v].add(e);
+//                    adj[w].add(e);
+//                    return;
+//                    //System.out.println("rem" + " " + adj[v].size());
+//                }
+//                else
+//                    return;
+//        }
+//        Edge e = new Edge(v, w, weight);
+//        adj[v].add(e);
+//        adj[w].add(e);
+//        this.E++;
+        if(!adj[v].isEmpty()) {
+            Edge eIterator = adj[v].getFirst();
+//        for(Edge eIterator : adj[v]){
+            if (eIterator.other(v) == w) {
+                if (eIterator.weight() > weight) {
+                    eIterator.setWeight(weight);
+//                    adj[v].remove(eIterator);
+//                    adj[w].remove(eIterator);
+//                    Edge e = new Edge(v, w, weight);
+//                    adj[v].addFirst(e);
+//                    adj[w].addFirst(e);
                     return;
-                    //System.out.println("rem" + " " + adj[v].size());
-                }
-                else
+                } else
                     return;
+            }
+//            break;
+//        }
         }
         Edge e = new Edge(v, w, weight);
-        adj[v].add(e);
-        adj[w].add(e);
+        adj[v].addFirst(e);
+        adj[w].addFirst(e);
         this.E++;
     }
 
